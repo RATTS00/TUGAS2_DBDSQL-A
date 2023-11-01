@@ -1,0 +1,18 @@
+use sampel_university;
+
+select student.name, department.dept_name
+from student, department 
+where student.dept_name = department.dept_name;
+
+SELECT s.name, d.dept_name, SUM(c.credits) AS total_credits
+FROM student s
+JOIN takes t ON s.ID = t.ID
+JOIN course c ON t.course_id = c.course_id
+JOIN department d ON s.dept_name = d.dept_name
+GROUP BY s.name, d.dept_name
+HAVING SUM(c.credits) > 100;
+
+select s.name, i.name
+from student s 
+join department d on s.dept_name = d.dept_name 
+join instructor i on d.dept_name = i.dept_name;
