@@ -1,0 +1,40 @@
+use sampel_university;
+
+select CONCAT_WS(' ', ID,' ' , NAME) as NIM_dan_NAMA from STUDENT; 
+
+select SUBSTRING_INDEX(DEPT_NAME, ' ',1) as KATA_PERTAMA_JURUSAN from department;
+
+select SUBSTR(dept_name, 1, 3) as karakter from DEPARTMENT; 
+
+select length(DEPT_NAME) as JUM_KARAKTER from DEPARTMENT;
+
+select NAME, replace (NAME, 'Arias', 'Ajun') as NAMA_BARU from INSTRUCTOR;
+
+select ABS(TOT_CRED) from STUDENT;
+
+select CEILING(TOT_CRED) from STUDENT;
+
+select FLOOR (TOT_CRED) from STUDENT;
+
+select ROUND(TOT_CRED) from STUDENT;
+
+select SQRT (TOT_CRED) from STUDENT;
+
+select CURDATE() as TANGGAL_SEKARANG;
+
+select CURTIME() as WAKTU_SEKARANG;
+
+select TIMESTAMP("2023-11-07") as WAKTU_SAAT_INI;
+
+select SUM(TOT_CRED) from STUDENT;
+
+select AVG(TOT_CRED) from STUDENT;
+
+select AVG(TOT_CRED) as RATA_RATA, SUM (TOT_CRED) as JUMLAH from STUDENT;
+
+select COUNT(BUDGET) from DEPARTMENT;
+
+SELECT AVG(BUDGET) as RATA2_BUDGET, DEPT_NAME as NAMA_DEPARTMEN
+FROM department
+GROUP BY DEPT_NAME
+HAVING AVG(BUDGET) > 2;
